@@ -1,0 +1,5 @@
+{
+  "python.defaultInterpreterPath": "C:/Anaconda3/envs/ai-lab/python.exe",
+  "terminal.integrated.shellArgs.windows": ["-ExecutionPolicy", "Bypass"],
+  "python.terminal.activateEnvironment": true
+}
