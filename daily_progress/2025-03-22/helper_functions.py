@@ -12,14 +12,14 @@ hf_api_key = os.getenv('HF_API_KEY')
 
 # Set up the Hugging Face OpenAI compatible client
 client = OpenAI(
-    base_url="https://router.huggingface.co/hf-inference/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B/v1",
+    base_url="https://router.huggingface.co/hf-inference/models/meta-llama/Llama-3.2-1B-Instruct/v1",
     api_key=hf_api_key
 )
 
 
 def print_llm_response(prompt):
     """This function takes as input a prompt, which must be a string enclosed in quotation marks,
-    and passes it to DeepSeek-R1-Distill-Qwen-32B model. The function then prints the response of the model.
+    and passes it to Llama-3.2-1B-Instruct model. The function then prints the response of the model.
     """
     llm_response = get_llm_response(prompt)
     print(llm_response)
@@ -27,13 +27,13 @@ def print_llm_response(prompt):
 
 def get_llm_response(prompt):
     """This function takes as input a prompt, which must be a string enclosed in quotation marks,
-    and passes it to DeepSeek-R1-Distill-Qwen-32B model. The function then saves the response of the model as a string.
+    and passes it to Llama-3.2-1B-Instruct model. The function then saves the response of the model as a string.
     """
     try:
         if not isinstance(prompt, str):
             raise ValueError("Input must be a string enclosed in quotes.")
         completion = client.chat.completions.create(
-             model="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+             model="meta-llama/Llama-3.2-1B-Instruct",
             messages=[
                 {
                     "role": "system",
@@ -69,7 +69,7 @@ def get_chat_completion(prompt, history):
     # Using double newlines as separator to maintain context boundaries
     prompt_with_history = f"{history_string}\n\n{prompt}"
     completion = client.chat.completions.create(
-        model="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+        model="meta-llama/Llama-3.2-1B-Instruct",
         messages=[
             {
                 "role": "system",
